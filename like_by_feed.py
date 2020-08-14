@@ -11,7 +11,7 @@ from selenium.common.exceptions import WebDriverException
 from random_image_selector import should_like_or_not
 
 
-from insta import driver
+from driver import driver
 
 
 def like_by_newsfeed(max_like: int):
