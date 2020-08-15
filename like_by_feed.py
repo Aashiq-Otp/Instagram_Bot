@@ -18,7 +18,6 @@ def like_by_newsfeed(max_like: int):
     total_liked: int = 0
     fetched_images = 0
     while total_liked <= max_like:
-        print(" Starting New Round Number")
         time.sleep(2)
         like_elements_list = WebDriverWait(driver, 5).until(
             EC.presence_of_all_elements_located((
@@ -33,7 +32,7 @@ def like_by_newsfeed(max_like: int):
                     like_element.click()
                     print("Photo ----> liked")
                     total_liked = total_liked + 1
-                    time.sleep(random.randrange(2, 8, 1))
+                    time.sleep(random.randrange(4, 10, 1))
                 else:
                     print("Photo Skipped ")
             except NoSuchElementException:
@@ -43,7 +42,7 @@ def like_by_newsfeed(max_like: int):
             except StaleElementReferenceException:
                 print("Element removed From DOM")
             except WebDriverException:
-                print("Not Clickable")
+                print("Media Not Clickable")
                 continue
         driver.execute_script("window.scrollBy(0,9000);")
     print("Program Ended --->  Liked :" + str(total_liked) + "\n Fetched : " + str(fetched_images))
